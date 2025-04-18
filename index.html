@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Кондитерская 2025 "Тося"</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Кондитерская "Тося"</a>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Каталог продукции</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+
+      <div class="col">
+        <div class="card product-card h-100">
+          <img src="images/tiramisu.jpg" class="card-img-top" alt="Тирамису">
+          <div class="card-body">
+            <h5 class="card-title">Торт "Нежность"</h5>
+            <p class="card-text">Деликатный вкус слоев маскарпоне и итальянского заварного крема контрастирует с сильным ароматом крепкого кофе и остротой какао-порошка.</p>
+            <p class="fw-bold">1200 ₽</p>
+            <button class="btn pastel-btn" onclick="addToCart('Тирамису', 1200)">Добавить в корзину</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card product-card h-100">
+          <img src="images/moti.jpg" class="card-img-top" alt="Моти">
+          <div class="card-body">
+            <h5 class="card-title">Моти</h5>
+            <p class="card-text">Традиционные японские моти — необычный десерт, который похож одновременно и на пирожное, и на мороженое.</p>
+            <p class="fw-bold">1500 ₽</p>
+            <button class="btn pastel-btn" onclick="addToCart('Моти', 1500)">Добавить в корзину</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card product-card h-100">
+          <img src="images/klubnika.jpg" class="card-img-top" alt="Клубника в шоколаде">
+          <div class="card-body">
+            <h5 class="card-title">Клубника в шоколаде"</h5>
+            <p class="card-text">Набор клубники в шоколаде</p>
+            <p class="fw-bold">900 ₽</p>
+            <button class="btn pastel-btn" onclick="addToCart('Клубника в шоколаде', 900)">Добавить в корзину</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card product-card h-100">
+          <img src="images/makaron.jpg" class="card-img-top" alt="Макароны">
+          <div class="card-body">
+            <h5 class="card-title">Макаронс "Ассорти"</h5>
+            <p class="card-text">Набор из 12 макаронс разных вкусов.</p>
+            <p class="fw-bold">850 ₽</p>
+            <button class="btn pastel-btn" onclick="addToCart('Макаронс Ассорти', 850)">Добавить в корзину</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card product-card h-100">
+          <img src="images/barhat.jpg" class="card-img-top" alt="Красный бархат">
+          <div class="card-body">
+            <h5 class="card-title">Торт "Красный бархат"</h5>
+            <p class="card-text">Изысканный десерт, состоящий из ярких коржей насыщенного рубинового цвета на фоне контрастного белоснежного крема.</p>
+            <p class="fw-bold">1000 ₽</p>
+            <button class="btn pastel-btn" onclick="addToCart('Торт Красный бархат', 1000)">Добавить в корзину</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card product-card h-100">
+          <img src="images/chis.jpg" class="card-img-top" alt="Чизкейк с апельсином">
+          <div class="card-body">
+            <h5 class="card-title">Чизкейк с апельсином</h5>
+            <p class="card-text">Нежный чизкейк с легким апельсиновым ароматом, который подарит вам незабываемое сочетание кремовой текстуры и свежести цитруса.</p>
+            <p class="fw-bold">1100 ₽</p>
+            <button class="btn pastel-btn" onclick="addToCart('Чизкейк с апельсином', 1000)">Добавить в корзину</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Иконка корзины -->
+  <button id="cartIcon" onclick="toggleCart()">🛒</button>
+
+  <!-- Корзина -->
+  <div id="cartSidebar" class="cart-sidebar">
+    <h5>Ваша корзина</h5>
+    <div id="cartContent">Корзина пуста.</div>
+    <hr />
+    <button class="btn pastel-btn" onclick="openOrderModal()">Оформить заказ</button>
+  </div>
+
+  <!-- Модальное окно оформления заказа -->
+  <div class="modal fade" id="orderModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form onsubmit="submitOrder(event)">
+          <div class="modal-header">
+            <h5 class="modal-title">Оформление заказа</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label">Имя</label>
+              <input type="text" class="form-control" id="customerName" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Телефон</label>
+              <input type="tel" class="form-control" id="customerPhone" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Адрес доставки</label>
+              <textarea class="form-control" id="customerAddress" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Комментарий</label>
+              <textarea class="form-control" id="customerComment"></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn pastel-btn">Отправить заказ</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Кондитерская "Тося" - Все права защищены</p>
+    <div class="social-icons">
+      <a href="#" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="#" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="#" target="_blank" aria-label="Telegram">
+        <i class="fab fa-telegram"></i>
+      </a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

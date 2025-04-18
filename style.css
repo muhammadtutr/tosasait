@@ -1,0 +1,149 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f7f1; 
+  color: #5a4d4d; 
+}
+
+.navbar {
+  background-color: #f1c6a3; 
+}
+
+.navbar-brand {
+  color: #d0d0d0 !important; 
+}
+
+.pastel-bg {
+  background-color: #fff3e0 !important; 
+}
+
+.pastel-btn {
+  background-color: #f8a5a5; 
+  color: #fff;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.pastel-btn:hover {
+  background-color: #f67280; 
+  color: white;
+}
+
+.product-card img {
+  max-height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.product-card {
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  background-color: #ffffff;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.cart-sidebar {
+  position: fixed;
+  bottom: 20px;
+  right: -350px;
+  width: 350px;
+  height: 400px;
+  background-color: #f3e0d1; 
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+  transition: right 0.4s ease;
+  z-index: 1050;
+  border-radius: 15px;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.cart-sidebar.open {
+  right: 20px;
+}
+
+#cartIcon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #f8a5a5;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1051; 
+}
+
+#cartIcon:hover {
+  background-color: #f67280; 
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f1c6a3; 
+  animation: fadeIn 0.3s ease;
+}
+
+.cart-item .remove-btn {
+  background: none;
+  border: none;
+  color: #d9534f;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.cart-item .remove-btn:hover {
+  transform: scale(1.2);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+footer {
+  background-color: #343a40; 
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  border-top: 2px solid #f1c6a3;
+  width: 100%;
+  box-sizing: border-box; 
+}
+
+footer p {
+  margin: 0;
+  padding: 0;
+}
+
+footer .social-icons {
+  margin-top: 10px;
+}
+
+footer .social-icons a {
+  color: white;
+  margin: 0 15px;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+footer .social-icons a:hover {
+  color: #f67280; 
+}
